@@ -142,7 +142,7 @@
     }
 	
 	// It configure the read operation for i2s dsp slaves
-	void configure_i2s_dsp_read(uint16_t rx_addr,uint16_t size, uint16_t two_ch, uint16_t lsb_first, uint16_t num_bit, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint32_t clk_freq){
+	void configure_i2s_dsp_read(uint16_t rx_addr,uint16_t size, uint16_t two_ch, uint16_t lsb_first, uint16_t num_bit, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint16_t dsp_offset, uint32_t clk_freq){
        int u;
        uint32_t reg=0;
        uint16_t clk_div = 0; 
@@ -182,10 +182,8 @@
        if(dsp_setup>1)
           dsp_setup= (clk_freq+ dsp_setup/2 )/ dsp_setup;
 
-       printf ("DSP_MODE: %x\n",dsp_mode);
-       printf ("CLK_DIV: %x\n",dsp_setup-1);
-            
-       reg|= 1<<UDMA_I2S_I2S_DSP_SETUP_DSP_EN_BIT | dsp_mode<< UDMA_I2S_I2S_DSP_SETUP_DSP_MODE_BIT | (dsp_setup-1);
+             
+       reg|= 1<<UDMA_I2S_I2S_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_DSP_SETUP_DSP_MODE_BIT | (dsp_setup-1);
        
        // write DSP_SETUP
        udma_i2s_i2s_dsp_setup_set(udma_i2s_channel_base, reg);
@@ -203,5 +201,8 @@
        
 	}
 	
+
+	
+
 #endif
 	

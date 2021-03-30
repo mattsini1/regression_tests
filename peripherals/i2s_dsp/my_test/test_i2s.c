@@ -10,9 +10,9 @@
 #define GPIO_SD_0 15
 #define GPIO_SD_1 16
 
-#define DSP_MODE_0 0 // 0X00 to communicate with ICS-52000 MICROPHONES - WS on falling
+#define DSP_MODE_0 0 // 0 to communicate with ICS-52000 MICROPHONES or generic DSP - WS on falling
 #define DSP_MODE_1 1 // 0x01 to comunicate wit generic DSP - WS on rising
-#define DSP_MODE_2 2 // 0x10 to comunicate wit generic DSP - WS on falling
+//#define DSP_MODE_2 2 // 0x10 to comunicate wit generic DSP - WS on falling
 
 #define true 1
 #define false  0
@@ -23,7 +23,7 @@ int main(){
   int buffer_size;
   int u=0;
   
-  uint16_t num_bits,num_word, two_ch, lsb_first;
+  uint16_t num_bits,num_word, two_ch, lsb_first, dsp_offset;
   uint32_t clk_freq,dsp_setup_time;
   
   /*
@@ -48,9 +48,9 @@ int main(){
   //I2S CONFIGURATION STEP
 
    two_ch= false;
-   lsb_first= true;
+   lsb_first= false;
    num_bits = 32; // 5 bits -> max 32
-   
+   dsp_offset= 1; //5 bit -> max 32
    /* num_word is equal to the number of devices
     * 
     * NB: If you want to read from both sd lines you must have the same number of devices on both channels
@@ -59,7 +59,7 @@ int main(){
     * */
    
 
-   num_word= 1;     //3 bits -> max 8
+   num_word= 4;     //3 bits -> max 8
    dsp_setup_time=1; //10ms -> 100Hz
    clk_freq= 3072000; //100KHz
    buffer_size= 4*num_word;
@@ -75,18 +75,18 @@ int main(){
    //printf("Freq peripheral: %d\nMHz",pos_freq_domains[PI_FREQ_DOMAIN_PERIPH]);
    //printf("Freq clk_freq: %d\nMHz",clk_freq);
    
-   configure_i2s_dsp_read(rx_addr,buffer_size, two_ch, lsb_first, num_bits, num_word, dsp_setup_time, DSP_MODE_1, clk_freq);
+   configure_i2s_dsp_read(rx_addr,buffer_size, two_ch, lsb_first, num_bits, num_word, dsp_setup_time, DSP_MODE_0, dsp_offset, clk_freq);
  
    while(1){
 	    printf("MIC_0 should be 8: %d\n",pulp_read32(rx_addr) );
-     /* printf("MIC_1 should be 10: %d\n",pulp_read32(rx_addr +1) );
+      printf("MIC_1 should be 10: %d\n",pulp_read32(rx_addr +1) );
       printf("MIC_2 should be 12: %d\n",pulp_read32(rx_addr +2) );  
       printf("MIC_3 should be 14: %d\n",pulp_read32(rx_addr +3) ); 	  
 
-      printf("MIC_4 should be 16: %d\n",pulp_read32(rx_addr +4));
+      /*printf("MIC_4 should be 16: %d\n",pulp_read32(rx_addr +4));
       printf("MIC_5 should be 18: %d\n",pulp_read32(rx_addr +5) );
       printf("MIC_6 should be 20: %d\n",pulp_read32(rx_addr +6) );  
-      printf("MIC_7 should be 22: %d\n",pulp_read32(rx_addr +7) );   */ 
+      printf("MIC_7 should be 22: %d\n",pulp_read32(rx_addr +7) );  */
    }
   
    
