@@ -183,7 +183,7 @@
           dsp_setup= (clk_freq+ dsp_setup/2 )/ dsp_setup;
 
              
-       reg|= 1<<UDMA_I2S_I2S_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_DSP_SETUP_DSP_MODE_BIT | (dsp_setup-1);
+       reg|= 1<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_MODE_BIT | (dsp_setup-1);
        
        // write DSP_SETUP
        udma_i2s_i2s_dsp_setup_set(udma_i2s_channel_base, reg);
