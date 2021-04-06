@@ -141,8 +141,8 @@
      plp_uart_setup(channel - ARCHI_UDMA_UART_ID(0), 0, div-1);
     }
 	
-	// It configure the read operation for i2s dsp slaves
-	void configure_i2s_dsp_read(uint16_t rx_addr,uint16_t size, uint16_t two_ch, uint16_t lsb_first, uint16_t num_bit, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint16_t dsp_offset, uint32_t clk_freq){
+	
+	void configure_i2s_dsp_slave(uint16_t rx_addr,uint16_t size, uint16_t two_ch, uint16_t lsb_first, uint16_t num_bit, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint16_t dsp_offset, uint32_t clk_freq){
        int u;
        uint32_t reg=0;
        uint16_t clk_div = 0; 
@@ -182,13 +182,13 @@
        if(dsp_setup>1)
           dsp_setup= (clk_freq+ dsp_setup/2 )/ dsp_setup;
 
-             
+
        reg|= 1<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_MODE_BIT | (dsp_setup-1);
        
        // write DSP_SETUP
-       udma_i2s_i2s_dsp_setup_set(udma_i2s_channel_base, reg);
+       udma_i2s_i2s_slv_dsp_setup_set(udma_i2s_channel_base, reg);
              
-       reg=0;
+       reg=udma_i2s_i2s_clkcfg_setup_get(udma_i2s_channel_base);
        reg|= 1<<UDMA_I2S_I2S_CLKCFG_SETUP_SLAVE_NUM_BIT| 1<< UDMA_I2S_I2S_CLKCFG_SETUP_SLAVE_CLK_EN_BIT | (clk_div-1) << UDMA_I2S_I2S_CLKCFG_SETUP_SLAVE_CLK_DIV_BIT;
        
        //write CLKCFG_SETUP 
@@ -202,7 +202,64 @@
 	}
 	
 
-	
+	void configure_i2s_dsp_master(uint16_t tx_addr,uint16_t size, uint16_t two_ch, uint16_t lsb_first, uint16_t num_bit, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint16_t dsp_offset, uint32_t clk_freq){
+       int u;
+       uint32_t reg=0;
+       uint16_t clk_div = 0; 
+       
+       uint32_t udma_i2s_channel_base = hal_udma_channel_base(UDMA_CHANNEL_ID(ARCHI_UDMA_I2S_ID(u)));
+       printf("uDMA i2s%d base channel address is: %8x\n", u,udma_i2s_channel_base);
+       
+       //write TX_SADDR register: it sets the L2 start address 
+       udma_i2s_i2s_tx_saddr_set(udma_i2s_channel_base, (uint16_t)tx_addr);
+       printf("The incoming data (from i2s peripheral) will be read starting from : %8x \n", tx_addr); 
+		 
+	   //write RX_SIZE register: it sets the buffer syze in bytes
+       udma_i2s_i2s_tx_size_set(udma_i2s_channel_base, size);
+       printf("Buffer size is set to %8x \n", size);
+       
+       //disable pdm
+       udma_i2s_i2s_pdm_setup_set(udma_i2s_channel_base, 0x00000000);
+       
+       reg|= 1<< UDMA_I2S_I2S_MST_SETUP_MASTER_EN_BIT;
+       
+       if (two_ch == 1)
+          reg|= 1 << UDMA_I2S_I2S_MST_SETUP_MASTER_2CH_BIT;
+        
+       if (lsb_first == 1)
+          reg|= 1 << UDMA_I2S_I2S_MST_SETUP_MASTER_LSB_BIT;
+       
+       reg|=  (num_bit-1) << UDMA_I2S_I2S_MST_SETUP_MASTER_BITS_BIT | (num_words-1)<<0;
+       
+       //write MST_SETUP register:
+       udma_i2s_i2s_mst_setup_set(udma_i2s_channel_base, 0x00000000|reg);
+       printf("Config Slave Setup register is set to %8x \n", udma_i2s_i2s_mst_setup_get(udma_i2s_channel_base));
+       
+       reg=0;
+
+       clk_div= (pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] + clk_freq/2) / clk_freq;     
+       
+       if(dsp_setup>1)
+          dsp_setup= (clk_freq+ dsp_setup/2 )/ dsp_setup;
+
+       reg=0;
+       reg|= 1<<UDMA_I2S_I2S_MST_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_MST_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_MST_DSP_SETUP_DSP_MODE_BIT | (dsp_setup-1);
+       
+       // write DSP_SETUP
+       udma_i2s_i2s_mst_dsp_setup_set(udma_i2s_channel_base, reg);
+          
+       reg=udma_i2s_i2s_clkcfg_setup_get(udma_i2s_channel_base);
+       reg|= 0<<UDMA_I2S_I2S_CLKCFG_SETUP_MASTER_NUM_BIT| 1<< UDMA_I2S_I2S_CLKCFG_SETUP_MASTER_CLK_EN_BIT | (clk_div-1) << UDMA_I2S_I2S_CLKCFG_SETUP_MASTER_CLK_DIV_BIT;
+       
+       //write CLKCFG_SETUP 
+       udma_i2s_i2s_clkcfg_setup_set(udma_i2s_channel_base, reg);
+       printf("Config Clock register is set to %8x \n", udma_i2s_i2s_clkcfg_setup_get(udma_i2s_channel_base));
+             
+       //write RX_CFG register: 
+       udma_i2s_i2s_tx_cfg_set(udma_i2s_channel_base, 0x00000015);
+       printf("Config RX register is set to %8x \n", udma_i2s_i2s_tx_cfg_get(udma_i2s_channel_base));
+       
+	}
 
 #endif
 	

@@ -261,11 +261,77 @@ add wave -noupdate -group mic_3 /tb_pulp/genblk6/genblk3/mic_3/next_state
 add wave -noupdate -group mic_3 /tb_pulp/genblk6/genblk3/mic_3/count
 add wave -noupdate -group mic_3 /tb_pulp/genblk6/genblk3/mic_3/set
 add wave -noupdate -group mic_3 /tb_pulp/genblk6/genblk3/mic_3/tristate
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/sck_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/rstn_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/i2s_ch0_o
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/i2s_ch1_o
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/i2s_ws_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/fifo_data_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/fifo_data_valid_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/fifo_data_ready_o
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/fifo_err_o
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_en_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_2ch_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_num_bits_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_num_word_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_lsb_first_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_master_dsp_mode_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/cfg_master_dsp_offset_i
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/r_shiftreg_ch0
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/r_shiftreg_ch1
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_shiftreg_ch0
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_shiftreg_ch1
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/r_shiftreg_shadow
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_shiftreg_shadow
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/data_ready
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_sample_sr0
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_sample_sr1
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_sample_swd
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/set_offset
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/clear_offset
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/check_offset
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/r_count_bit
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/r_count_offset
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_word_done
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_word_done_pre
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_i2s_ch0
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/s_i2s_ch1
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/state
+add wave -noupdate -group i2s_dsp_master_tx /tb_pulp/i_dut/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_dsp_master/next_state
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/sck_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/rstn_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/i2s_ch0_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/i2s_ch1_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/i2s_ws_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/fifo_data_o
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/fifo_data_valid_o
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/fifo_data_ready_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/fifo_err_o
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_en_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_2ch_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_num_bits_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_num_word_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_lsb_first_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_rx_continuous_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_slave_dsp_mode_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/cfg_slave_dsp_offset_i
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_shiftreg_ch0
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_shiftreg_ch1
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_shiftreg_ch0_shadow
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_shiftreg_ch1_shadow
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_count_offset
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_count_bit
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/start
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/set_counter
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_ch0_valid
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/r_ch1_valid
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/state
+add wave -noupdate -expand -group generic_slave_rx /tb_pulp/genblk6/genblk2/generic_dsp_slave_0/next_state
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {10535720881 ps} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 687
-configure wave -valuecolwidth 39
+WaveRestoreCursors {{Cursor 1} {0 ps} 0}
+quietly wave cursor active 0
+configure wave -namecolwidth 150
+configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -278,4 +344,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ms
 update
-WaveRestoreZoom {0 ps} {17548560092 ps}
+WaveRestoreZoom {0 ps} {717 ps}
