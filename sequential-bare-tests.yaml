@@ -2,9 +2,6 @@ sequential_bare_test:
   dct:
     path: ./sequential_bare_tests/dct
     command: make clean all run
-  fft2:
-    path: ./sequential_bare_tests/fft2
-    command: make clean all run
   rijndael:
     path: ./sequential_bare_tests/rijndael
     command: make clean all run
@@ -16,27 +13,15 @@ sequential_bare_test:
     command: make clean all run
   stencil_vect:
     path: ./sequential_bare_tests/stencil_vect
-    command: make clean all run
-  keccak:
-    path: ./sequential_bare_tests/keccak
-    command: make clean all run
-  fir:
-    path: ./sequential_bare_tests/fir
-    command: make clean all run
+    command: make clean all run 
   stencil:
     path: ./sequential_bare_tests/stencil
-    command: make clean all run
-  ipm:
-    path: ./sequential_bare_tests/ipm
     command: make clean all run
   towerofhanoi:
     path: ./sequential_bare_tests/towerofhanoi
     command: make clean all run
   crc32:
     path: ./sequential_bare_tests/crc32
-    command: make clean all run
-  conv2d:
-    path: ./sequential_bare_tests/conv2d
     command: make clean all run
   seidel:
     path: ./sequential_bare_tests/seidel
@@ -47,9 +32,6 @@ sequential_bare_test:
   gauss-2d:
     path: ./sequential_bare_tests/gauss-2d
     command: make clean all run
-  aes_cbc:
-    path: ./sequential_bare_tests/aes_cbc
-    command: make clean all run
   bubblesort:
     path: ./sequential_bare_tests/bubblesort
     command: make clean all run
@@ -59,8 +41,6 @@ sequential_bare_test:
   jacobi-1d-imper:
     path: ./sequential_bare_tests/jacobi-1d-imper
     command: make clean all run
-  fft:
-    path: ./sequential_bare_tests/fft
-    command: make clean all run
+  
 
 
