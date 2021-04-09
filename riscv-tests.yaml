@@ -17,13 +17,9 @@ riscv_tests_soc:
   testMAC3:
     path: ./riscv_tests_soc/testMAC3 #ok 
     command: make clean all run
-  testEventsFlex:
-    path: ./riscv_tests_soc/testEventsFlex #ok
-    command: make clean all run
   testVecArith:
     path: ./riscv_tests_soc/testVecArith #ok
     command: make clean all run
-
   testVecLogic:
     path: ./riscv_tests_soc/testVecLogic #ok
     command: make clean all run
