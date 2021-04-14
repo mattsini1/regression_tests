@@ -84,7 +84,7 @@ int main(){
   for (int i=0; i< num_test; i++) {
 
       if (i==0){
-        //printf ("***************************** TEST %d *****************************\n",i+1);
+        printf ("***************************** TEST %d *****************************\n",i+1);
 
         num_bits= 32;
         num_word= 16;
@@ -116,7 +116,7 @@ int main(){
 
         val_wr=8;
         for (int j=0; j< num_word; j++) {
-          //printf("MIC_%d should be %d: %d\n",j,val_wr, pulp_read32(rx_addr+j) );
+          printf("MIC_%d should be %d: %d\n",j,val_wr, pulp_read32(rx_addr+j) );
           if (pulp_read32(rx_addr+j)!=val_wr)
             test[i]=0;
           val_wr+=2;
@@ -128,7 +128,7 @@ int main(){
       if (i==1){
         
 
-        //printf ("***************************** TEST %d *****************************\n",i+1);
+        printf ("***************************** TEST %d *****************************\n",i+1);
 
         disable_i2s_dsp_master();
         disable_i2s_dsp_slave();
@@ -165,7 +165,7 @@ int main(){
 
         val_wr=10;
         for (int j=0; j< num_word; j++) {
-          //printf("MIC_%d should be %d: %d\n",j,val_wr, pulp_read32(rx_addr+j) );
+          printf("MIC_%d should be %d: %d\n",j,val_wr, pulp_read32(rx_addr+j) );
           if (pulp_read32(rx_addr+j)!=val_wr)
             test[i]=0;
           val_wr+=2;
@@ -175,7 +175,7 @@ int main(){
 
       if (i==2){
         
-        //printf ("***************************** TEST %d *****************************\n",i+1);
+        printf ("***************************** TEST %d *****************************\n",i+1);
 
         disable_i2s_dsp_master();
         disable_i2s_dsp_slave();
@@ -213,7 +213,7 @@ int main(){
 
         val_wr=10;
         for (int j=0; j< num_word; j++) {
-          //printf("MIC_%d should be %d: %d\n",j,val_wr, pulp_read32(rx_addr+j) );
+          printf("MIC_%d should be %d: %d\n",j,val_wr, pulp_read32(rx_addr+j) );
           if (pulp_read32(rx_addr+j)!=val_wr)
             test[i]=0;
           val_wr+=2;
