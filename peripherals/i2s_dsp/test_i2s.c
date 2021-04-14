@@ -61,8 +61,8 @@ int main(){
   **    9-16   **  16 x NUM_BITS x WS_FREQ   **
   ********************************************/
    
-  //num_bits= 32;
-  //num_word= 16;
+  num_bits= 32;
+  num_word= 16;
 
   result=0;
 
@@ -160,8 +160,6 @@ int main(){
 
         configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_0, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
         configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_0, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);
-        //configure_i2s_dsp_slave  (rx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_slv, (uint32_t) DSP_MODE_0, dsp_slv_offset, clk_freq);
-        //configure_i2s_dsp_master (tx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_mst, (uint32_t) DSP_MODE_0, dsp_mst_offset, clk_freq);  
 
         wait_cycles(99500);
 
@@ -210,8 +208,6 @@ int main(){
 
         configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_0, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
         configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_0, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);
-        //configure_i2s_dsp_slave  (rx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_slv, (uint32_t) DSP_MODE_0, dsp_slv_offset, clk_freq);
-        //configure_i2s_dsp_master (tx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_mst,(uint32_t)  DSP_MODE_0, dsp_mst_offset, clk_freq);  
 
         wait_cycles(100000);
 
