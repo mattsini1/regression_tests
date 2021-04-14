@@ -158,10 +158,10 @@
        //Disable pdm
        udma_i2s_i2s_pdm_setup_set(udma_i2s_channel_base, 0x00000000);
 
-       clk_div= ((pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] + clk_freq/2) / clk_freq);     
+       clk_div= ((pos_freq_domains[PI_FREQ_DOMAIN_PERIPH]) / clk_freq)-1;     
        
        if(dsp_setup>1)
-          dsp_setup= ((clk_freq+ dsp_setup/2 )/ dsp_setup)-1;
+          dsp_setup= ((clk_freq)/ dsp_setup)-1;
 
        reg|= 1<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_MODE_BIT | dsp_setup;
        
@@ -210,10 +210,10 @@
        udma_i2s_i2s_tx_size_set(udma_i2s_channel_base, size);
        
        
-       clk_div= ((pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] + clk_freq/2) / clk_freq);     
+       clk_div= (pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] / clk_freq)-1;     
        
        if(dsp_setup>1)
-          dsp_setup= ((clk_freq+ dsp_setup/2 )/ dsp_setup)-1;
+          dsp_setup= ((clk_freq )/ dsp_setup)-1;
 
        
        reg|= 1<<UDMA_I2S_I2S_MST_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_MST_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_MST_DSP_SETUP_DSP_MODE_BIT | (dsp_setup);
@@ -272,19 +272,19 @@
 
 	}
 
-	/*void disable_i2s_master_clk(){
+	void disable_i2s_master_clk(){
 		uint32_t reg=0;
 		int u;
 		
 		uint32_t udma_i2s_channel_base = hal_udma_channel_base(UDMA_CHANNEL_ID(ARCHI_UDMA_I2S_ID(u)));
 		
 		reg=udma_i2s_i2s_clkcfg_setup_get(udma_i2s_channel_base);
-        reg=  0<< UDMA_I2S_I2S_CLKCFG_SETUP_MASTER_CLK_EN_BIT ;
+        reg|=  0<< UDMA_I2S_I2S_CLKCFG_SETUP_MASTER_CLK_EN_BIT ;
 
         //write CLKCFG_SETUP 
         udma_i2s_i2s_clkcfg_setup_set(udma_i2s_channel_base, reg);
 
-	}*/
+	}
 
 	void disable_i2s_dsp_slave(){
 		uint32_t reg=0;
@@ -309,14 +309,14 @@
 	
 	}
 
-	void disable_i2s_clk(){
+	void disable_i2s_slave_clk(){
 		uint32_t reg=0;
 		int u;
 		
 		uint32_t udma_i2s_channel_base = hal_udma_channel_base(UDMA_CHANNEL_ID(ARCHI_UDMA_I2S_ID(u)));
 				
 		reg=udma_i2s_i2s_clkcfg_setup_get(udma_i2s_channel_base);
-        reg=  0<< UDMA_I2S_I2S_CLKCFG_SETUP_SLAVE_CLK_EN_BIT ;
+        reg|=  0<< UDMA_I2S_I2S_CLKCFG_SETUP_SLAVE_CLK_EN_BIT ;
 
         //write CLKCFG_SETUP 
         udma_i2s_i2s_clkcfg_setup_set(udma_i2s_channel_base, reg);
