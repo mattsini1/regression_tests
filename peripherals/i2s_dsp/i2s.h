@@ -142,7 +142,7 @@
     }
 	
 	
-	void configure_i2s_dsp_slave(uint16_t rx_addr,uint16_t size, uint16_t lsb_first, uint16_t num_bit,uint16_t sel_clk, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint16_t dsp_offset, uint32_t clk_freq){
+	void configure_i2s_dsp_slave(uint32_t rx_addr,uint32_t size, uint32_t lsb_first, uint32_t num_bit,uint32_t sel_clk, uint32_t num_words, uint32_t dsp_setup, uint32_t dsp_mode, uint32_t dsp_offset, uint32_t clk_freq){
        int u;
        uint32_t reg=0;
        uint16_t clk_div = 0; 
@@ -196,7 +196,7 @@
 	}
 	
 
-	void configure_i2s_dsp_master(uint16_t tx_addr,uint16_t size, uint16_t lsb_first, uint16_t num_bit, uint16_t sel_clk, uint16_t num_words, uint16_t dsp_setup, uint16_t dsp_mode, uint16_t dsp_offset, uint32_t clk_freq){
+	void configure_i2s_dsp_master(uint32_t tx_addr,uint32_t size, uint32_t lsb_first, uint32_t num_bit, uint32_t sel_clk, uint32_t num_words, uint32_t dsp_setup, uint32_t dsp_mode, uint32_t dsp_offset, uint32_t clk_freq){
        int u;
        uint32_t reg=0;
        uint16_t clk_div = 0; 

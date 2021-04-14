@@ -25,13 +25,13 @@
 
 int main(){
   
-  int rx_addr[BUFFER_SIZE];
-  int tx_addr[BUFFER_SIZE];
+  uint32_t rx_addr[BUFFER_SIZE];
+  uint32_t tx_addr[BUFFER_SIZE];
   int test[num_test];
-  int buffer_size, num, result;
+  uint32_t buffer_size, num, result;
   int u=0;
   
-  uint16_t num_bits,num_word, two_ch, lsb_first, dsp_slv_offset, dsp_mst_offset;
+  uint32_t num_bits,num_word, two_ch, lsb_first, dsp_slv_offset, dsp_mst_offset;
   uint32_t ws_freq, clk_freq, dsp_setup_time_slv, dsp_setup_time_mst, val_wr;
   
  
@@ -109,8 +109,8 @@ int main(){
 
         lsb_first=0;
 
-        configure_i2s_dsp_slave  (rx_addr,buffer_size, lsb_first , num_bits, USE_MST_CLK , num_word, dsp_setup_time_slv, DSP_MODE_0, dsp_slv_offset, clk_freq);
-        configure_i2s_dsp_master (tx_addr,buffer_size, lsb_first , num_bits, USE_MST_CLK , num_word, dsp_setup_time_mst, DSP_MODE_0, dsp_mst_offset, clk_freq);  
+        configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_1, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
+        configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_1, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);  
 
         wait_cycles(50500);
 
@@ -158,8 +158,10 @@ int main(){
 
         lsb_first=0;
 
-        configure_i2s_dsp_slave  (rx_addr,buffer_size , lsb_first , num_bits, USE_MST_CLK , num_word, dsp_setup_time_slv, DSP_MODE_0, dsp_slv_offset, clk_freq);
-        configure_i2s_dsp_master (tx_addr,buffer_size , lsb_first , num_bits, USE_MST_CLK , num_word, dsp_setup_time_mst, DSP_MODE_0, dsp_mst_offset, clk_freq);  
+        configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_0, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
+        configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_0, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);
+        //configure_i2s_dsp_slave  (rx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_slv, (uint32_t) DSP_MODE_0, dsp_slv_offset, clk_freq);
+        //configure_i2s_dsp_master (tx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_mst, (uint32_t) DSP_MODE_0, dsp_mst_offset, clk_freq);  
 
         wait_cycles(99500);
 
@@ -206,8 +208,10 @@ int main(){
 
         lsb_first=1;
 
-        configure_i2s_dsp_slave  (rx_addr,buffer_size , lsb_first , num_bits, USE_MST_CLK , num_word, dsp_setup_time_slv, DSP_MODE_0, dsp_slv_offset, clk_freq);
-        configure_i2s_dsp_master (tx_addr,buffer_size , lsb_first , num_bits, USE_MST_CLK , num_word, dsp_setup_time_mst, DSP_MODE_0, dsp_mst_offset, clk_freq);  
+        configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_0, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
+        configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_0, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);
+        //configure_i2s_dsp_slave  (rx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_slv, (uint32_t) DSP_MODE_0, dsp_slv_offset, clk_freq);
+        //configure_i2s_dsp_master (tx_addr,buffer_size , lsb_first , num_bits, (uint32_t) USE_MST_CLK , num_word, dsp_setup_time_mst,(uint32_t)  DSP_MODE_0, dsp_mst_offset, clk_freq);  
 
         wait_cycles(100000);
 
