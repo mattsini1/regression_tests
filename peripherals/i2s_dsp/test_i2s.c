@@ -109,6 +109,26 @@ int main(){
 
         lsb_first=0;
 
+        printf ("SLAVE CONIFG\n");
+        printf("Freqency: %d KHz\n",ws_freq);
+        printf("Num bits: %d\n",num_bits);
+        printf("Num words: %d\n",num_word);
+        printf("LSB first (0: no , 1: yes): %d\n",lsb_first);
+        printf("Setup time: %d\n",dsp_setup_time_slv);
+        printf("Offset: %d\n",dsp_slv_offset);
+        printf("TDM mode: %d\n",DSP_MODE_1);
+        printf("Clock (0: master , 1: slave): %d\n\n",USE_MST_CLK);
+        
+        printf ("MASTER CONIFG \n");
+        printf("Freqency: %d KHz\n",ws_freq);
+        printf("Num bits: %d\n",num_bits);
+        printf("Num words: %d\n",num_word);
+        printf("LSB first (0: no , 1: yes): %d\n",lsb_first);
+        printf("Setup time: %d\n",dsp_setup_time_mst);
+        printf("Offset: %d\n",dsp_mst_offset);
+        printf("TDM mode: %d\n",DSP_MODE_1);
+        printf("Clock (0: master , 1: slave): %d\n",USE_MST_CLK);
+
         configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_1, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
         configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_1, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);  
 
@@ -158,6 +178,26 @@ int main(){
 
         lsb_first=0;
 
+        printf ("SLAVE CONIFG \n");
+        printf("Freqency: %d KHz\n",ws_freq);
+        printf("Num bits: %d\n",num_bits);
+        printf("Num words: %d\n",num_word);
+        printf("LSB first (0: no , 1: yes): %d\n",lsb_first);
+        printf("Setup time: %d\n",dsp_setup_time_slv);
+        printf("Offset: %d\n",dsp_slv_offset);
+        printf("TDM mode: %d\n",DSP_MODE_0);
+        printf("Clock (0: master , 1: slave): %d\n\n",USE_MST_CLK);
+        
+        printf ("MASTER CONIFG \n");
+        printf("Freqency: %d KHz\n",ws_freq);
+        printf("Num bits: %d\n",num_bits);
+        printf("Num words: %d\n",num_word);
+        printf("LSB first (0: no , 1: yes): %d\n",lsb_first);
+        printf("Setup time: %d\n",dsp_setup_time_mst);
+        printf("Offset: %d\n",dsp_mst_offset);
+        printf("TDM mode: %d\n",DSP_MODE_0);
+        printf("Clock (0: master , 1: slave): %d\n",USE_MST_CLK);
+
         configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_0, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
         configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_0, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);
 
@@ -205,6 +245,27 @@ int main(){
         buffer_size= 4*(num_word);
 
         lsb_first=1;
+
+
+        printf ("SLAVE CONIFG \n");
+        printf("Freqency: %d KHz\n",ws_freq);
+        printf("Num bits: %d\n",num_bits);
+        printf("Num words: %d\n",num_word);
+        printf("LSB first (0: no , 1: yes): %d\n",lsb_first);
+        printf("Setup time: %d\n",dsp_setup_time_slv);
+        printf("Offset: %d\n",dsp_slv_offset);
+        printf("TDM mode: %d\n",DSP_MODE_0);
+        printf("Clock (0: master , 1: slave): %d\n\n",USE_MST_CLK);
+        
+        printf ("MASTER CONIFG \n");
+        printf("Freqency: %d KHz\n",ws_freq);
+        printf("Num bits: %d\n",num_bits);
+        printf("Num words: %d\n",num_word);
+        printf("LSB first (0: no , 1: yes): %d\n",lsb_first);
+        printf("Setup time: %d\n",dsp_setup_time_mst);
+        printf("Offset: %d\n",dsp_mst_offset);
+        printf("TDM mode: %d\n",DSP_MODE_0);
+        printf("Clock (0: master , 1: slave): %d\n\n",USE_MST_CLK);
 
         configure_i2s_dsp_slave  ((uint32_t) rx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_slv, (uint32_t)DSP_MODE_0, (uint32_t) dsp_slv_offset, (uint32_t) clk_freq);
         configure_i2s_dsp_master ((uint32_t) tx_addr,(uint32_t) buffer_size, (uint32_t) lsb_first ,(uint32_t)  num_bits, (uint32_t) USE_MST_CLK , (uint32_t) num_word, (uint32_t) dsp_setup_time_mst, (uint32_t)DSP_MODE_0, (uint32_t) dsp_mst_offset, (uint32_t) clk_freq);

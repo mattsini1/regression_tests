@@ -158,10 +158,10 @@
        //Disable pdm
        udma_i2s_i2s_pdm_setup_set(udma_i2s_channel_base, 0x00000000);
 
-       clk_div= ((pos_freq_domains[PI_FREQ_DOMAIN_PERIPH]) / clk_freq)-1;     
+       clk_div= ((pos_freq_domains[PI_FREQ_DOMAIN_PERIPH]) / (clk_freq*2))-1;     
        
        if(dsp_setup>1)
-          dsp_setup= ((clk_freq)/ dsp_setup)-1;
+          dsp_setup= ((clk_freq*2)/ dsp_setup)-1;
 
        reg|= 1<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_SLV_DSP_SETUP_DSP_MODE_BIT | dsp_setup;
        
@@ -210,10 +210,10 @@
        udma_i2s_i2s_tx_size_set(udma_i2s_channel_base, size);
        
        
-       clk_div= (pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] / clk_freq)-1;     
+       clk_div= (pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] / (clk_freq*2))-1;     
        
        if(dsp_setup>1)
-          dsp_setup= ((clk_freq )/ dsp_setup)-1;
+          dsp_setup= ((clk_freq *2)/ dsp_setup)-1;
 
        
        reg|= 1<<UDMA_I2S_I2S_MST_DSP_SETUP_DSP_EN_BIT | dsp_offset<<UDMA_I2S_I2S_MST_DSP_SETUP_DSP_OFFSET_BIT | dsp_mode<< UDMA_I2S_I2S_MST_DSP_SETUP_DSP_MODE_BIT | (dsp_setup);
