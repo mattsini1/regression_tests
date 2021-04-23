@@ -102,8 +102,8 @@ int main(){
         dsp_setup_time_mst=0;
         dsp_setup_time_slv=0;
         
-        dsp_slv_offset=10;
-        dsp_mst_offset=10;
+        dsp_slv_offset=32;
+        dsp_mst_offset=32;
 
         buffer_size= 4*(num_word);
 
@@ -171,8 +171,8 @@ int main(){
         dsp_setup_time_mst=0;
         dsp_setup_time_slv=0;
          
-        dsp_slv_offset=32;
-        dsp_mst_offset=32;
+        dsp_slv_offset=64;
+        dsp_mst_offset=64;
 
         buffer_size= 4*(num_word);
 
@@ -239,8 +239,8 @@ int main(){
         dsp_setup_time_mst=1000000;
         dsp_setup_time_slv=0;
          
-        dsp_slv_offset=32;
-        dsp_mst_offset=32;
+        dsp_slv_offset=0;
+        dsp_mst_offset=0;
 
         buffer_size= 4*(num_word);
 
