@@ -56,6 +56,6 @@ riscv_tests_soc:
   testALUExt:
     path: ./riscv_tests_soc/testALUExt #ok
     command: make clean all run
-  testBuiltins:
-    path: ./riscv_tests_soc/testBuiltins #ok
-    command: make clean all run
+#  testBuiltins: #testing floating operations
+#    path: ./riscv_tests_soc/testBuiltins #ok
+#    command: make clean all run

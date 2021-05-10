@@ -3,7 +3,7 @@ PULP_APP_SRCS = testVecRelat.c
 
 PULP_CFLAGS = -DOR10N_TESTS_PRINTF -I../includes
 
-PULP_CFLAGS += -Os
+PULP_CFLAGS += -Os -mnohwloop
 
 ifeq '$(cluster)' '1'
 PULP_CFLAGS += -DUSE_CLUSTER
