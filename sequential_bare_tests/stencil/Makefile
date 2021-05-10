@@ -1,5 +1,5 @@
 PULP_APP = test
 PULP_APP_SRCS = stencil.c
-PULP_CFLAGS += -O3 -mnowhloop
+PULP_CFLAGS += -O3 -mnohwloop
 
 include $(PULP_SDK_HOME)/install/rules/pulp.mk
