@@ -1,7 +1,7 @@
 PULP_APP = test
 PULP_APP_SRCS = testCnt.c
 
-PULP_CFLAGS += -O3
+PULP_CFLAGS += -O3 -mnohwloop
 
 ifeq '$(cluster)' '1'
 PULP_CFLAGS += -DUSE_CLUSTER

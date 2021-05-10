@@ -1,7 +1,7 @@
 PULP_APP = test
 PULP_APP_SRCS = main.c helper.c
 
-PULP_CFLAGS = -O3
+PULP_CFLAGS += -O3 -mnohwloop
 
 PULP_CFLAGS += -O3
 

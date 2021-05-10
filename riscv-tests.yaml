@@ -38,9 +38,6 @@ riscv_tests_soc:
   testMUL:
     path: ./riscv_tests_soc/testMUL #ok
     command: make clean all run
-  testHWLP:
-    path: ./riscv_tests_soc/testHWLP #ok
-    command: make clean all run
   testMacNorm:
     path: ./riscv_tests_soc/testMacNorm #ook
     command: make clean all run
