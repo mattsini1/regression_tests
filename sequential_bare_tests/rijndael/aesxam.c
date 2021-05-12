@@ -246,7 +246,7 @@ int main()
       else
 	printf("== test: %s -> fail, nr. of errors: %d, execution time: %d\n", "rijndael", 1, get_time());
       
-      perf_print_all();
+      
     }
 
   return error;
