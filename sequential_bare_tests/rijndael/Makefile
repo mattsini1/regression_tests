@@ -1,5 +1,5 @@
 PULP_APP = test
 PULP_APP_SRCS = aes.c aesxam.c
-PULP_CFLAGS +=  -O3 -DREPEAT_FACTOR=1
+PULP_CFLAGS +=  -O3 -DREPEAT_FACTOR=1 -mnohwloop
 
 include $(PULP_SDK_HOME)/install/rules/pulp.mk
