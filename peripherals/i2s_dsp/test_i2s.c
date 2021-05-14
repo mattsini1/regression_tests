@@ -37,8 +37,8 @@ int main(){
  
   printf("[%d, %d] Start test i2s %d\n",  get_cluster_id(), get_core_id(),u);
 
-  //--- enable clock to i2s channels 
-  plp_udma_cg_set(plp_udma_cg_get() | (0xffffff20));
+  //--- enable clock to peripherals
+  plp_udma_cg_set(plp_udma_cg_get() | (0xffffffff));
     
   configure_gpio( GPIO_SCK, OUT);
   configure_gpio( GPIO_WS, OUT);

@@ -54,7 +54,7 @@ int uart_write_nb(int uart_id, void *buffer, uint32_t size)
 
 int main()
 {
-
+printf("uart start\n");
 int error = 0;
 int tx_buffer[BUFFER_SIZE] = {'S','t','a','y',' ','a','t',' ','h','o','m','e','!','!','!','!'};
 int rx_buffer[BUFFER_SIZE];
