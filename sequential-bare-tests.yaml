@@ -1,13 +1,13 @@
 sequential_bare_test:
-#  dct:
-#    path: ./sequential_bare_tests/dct
-#    command: make clean all run
+  dct:
+    path: ./sequential_bare_tests/dct
+    command: make clean all run
   rijndael:
     path: ./sequential_bare_tests/rijndael
     command: make clean all run
-#  jacobi-2d-imper:
-#    path: ./sequential_bare_tests/jacobi-2d-imper
-#    command: make clean all run
+  jacobi-2d-imper:
+    path: ./sequential_bare_tests/jacobi-2d-imper
+    command: make clean all run
   bitDescriptor:
     path: ./sequential_bare_tests/bitDescriptor
     command: make clean all run
@@ -23,9 +23,9 @@ sequential_bare_test:
   crc32:
     path: ./sequential_bare_tests/crc32
     command: make clean all run
-#  seidel:
-#    path: ./sequential_bare_tests/seidel
-#    command: make clean all run
+  seidel:
+    path: ./sequential_bare_tests/seidel
+    command: make clean all run
   fibonacci:
     path: ./sequential_bare_tests/fibonacci
     command: make clean all run
@@ -35,9 +35,9 @@ sequential_bare_test:
   bubblesort:
     path: ./sequential_bare_tests/bubblesort
     command: make clean all run
-#  fdtd-1d:
-#    path: ./sequential_bare_tests/fdtd-1d
-#    command: make clean all run
+  fdtd-1d:
+    path: ./sequential_bare_tests/fdtd-1d
+    command: make clean all run
   jacobi-1d-imper:
     path: ./sequential_bare_tests/jacobi-1d-imper
     command: make clean all run
