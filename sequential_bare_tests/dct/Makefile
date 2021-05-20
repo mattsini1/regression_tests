@@ -1,5 +1,5 @@
 PULP_APP = test
 PULP_APP_SRCS = dct.c
-PULP_CFLAGS += -O3 -g
+PULP_CFLAGS += -O3 -g -mnohwloop
 
 include $(PULP_SDK_HOME)/install/rules/pulp.mk
