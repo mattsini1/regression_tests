@@ -5,10 +5,17 @@
 //Buffer size must be specified in Bytes
 #define BUFFER_SIZE 128
 
-#define GPIO_SCK  13
-#define GPIO_WS   14
-#define GPIO_SD_0 15
-#define GPIO_SD_1 16
+//I2S SLAVE PORT
+#define GPIO_I2SS_SCK  15
+#define GPIO_I2SS_WS   16
+#define GPIO_I2SS_SD_0 17
+#define GPIO_I2SS_SD_1 18
+
+//I2S MASTER PORT
+#define GPIO_I2SM_SCK  19
+#define GPIO_I2SM_WS   20
+#define GPIO_I2SM_SD_0 21
+#define GPIO_I2SM_SD_1 22
 
 #define DSP_MODE_0 0 // 0 to communicate with ICS-52000 MICROPHONES or generic DSP - WS on falling
 #define DSP_MODE_1 1 // 0x01 to comunicate wit generic DSP - WS on rising
@@ -39,11 +46,7 @@ int main(){
 
   //--- enable clock to peripherals
   plp_udma_cg_set(plp_udma_cg_get() | (0xffffffff));
-    
-  configure_gpio( GPIO_SCK, OUT);
-  configure_gpio( GPIO_WS, OUT);
-  configure_gpio( GPIO_SD_0, IN);
-  configure_gpio( GPIO_SD_1, IN);
+  
    
   /*********************************************************************************************************************
   ** NUM_WORDS : max 16 (it defines the number of slots/devices on the same channel)                                  **

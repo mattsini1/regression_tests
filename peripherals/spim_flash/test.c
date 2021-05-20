@@ -224,15 +224,13 @@ int tx_buffer_cmd_read_WIP[BUFFER_SIZE] = {SPI_CMD_CFG(1,0,0),
 
 for (int u = 0; u<2; u++){
 
-      //int u=0;
-
       printf("[%d, %d] Start test flash page programming over qspi %d\n",  get_cluster_id(), get_core_id(),u);
 
     
+      
       configure_gpio(28,OUT,1); //--- using this GPIO as CS for the flash
       set_gpio(28,1);
-      
-
+     
       //--- enable all the udma channels
       plp_udma_cg_set(plp_udma_cg_get() | (0xffffffff));
 
@@ -248,6 +246,7 @@ for (int u = 0; u<2; u++){
 
       //--- wait until the page is written (we could use the WIP bit instead of waiting)
       wait_cycles(50000);
+
 
       //--- try to read back data
       plp_udma_enqueue(UDMA_SPIM_RX_ADDR(u) ,  (int)rx_page     , TEST_PAGE_SIZE*4, UDMA_CHANNEL_CFG_EN | UDMA_CHANNEL_CFG_SIZE_32);
