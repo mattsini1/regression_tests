@@ -41,6 +41,14 @@ sequential_bare_test:
   jacobi-1d-imper:
     path: ./sequential_bare_tests/jacobi-1d-imper
     command: make clean all run
-  
+  fft_hwpe_32bit:
+    path: ./sequential_bare_tests/fft_hwpe_test/fft_test_n512_32b
+    command: make clean all run
+  fft_hwpe_16bit:
+    path: ./sequential_bare_tests/fft_hwpe_test/fft_test_n512_16b
+    command: make clean all run
+  fft_hwpe_8bit:
+    path: ./sequential_bare_tests/fft_hwpe_test/fft_test_n512_8b
+    command: make clean all run
 
 
