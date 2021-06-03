@@ -24,10 +24,9 @@
 #define NB_ITER 1
 //#define UART
 //#define INFINITE_LOOP
-
-#define ADDR_FIRST 0x1c010000
+#define ADDR_FIRST 0x1c010000 // 0x1c000000 - 0x1c010000 private banks: do not corrupt!
 #define ADDR_LAST  0x1C050000 //0x1c110000<-1M 512k ->0x1c090000 256k->0x1C050000 128k->0x1C030000
-#define STRIDE 128
+#define STRIDE 8
 
 #ifdef USE_BYTE_FEEDBACK
 // not actually extern, just down the bottom
@@ -63,7 +62,7 @@ uint32_t lfsr_iter_word(uint32_t lfsr, uint32_t *lfsr_byte_feedback) {
 
 int main() {
   uint32_t cnt = 0;
-  uint32_t cnt2=3648; // (ADDR_LAST-ADDR_FIRST)/STRIDE
+  uint32_t cnt2= (ADDR_LAST-ADDR_FIRST)/STRIDE;
 
   //WRITE all the memory with stride=128B
     uint32_t lfsr = DEFAULT_SEED;
@@ -74,9 +73,10 @@ int main() {
 
   //READ
     lfsr = DEFAULT_SEED;
-    for(uint32_t addr=ADDR_FIRST; addr<ADDR_LAST; addr+=128) {
+    for(uint32_t addr=ADDR_FIRST; addr<ADDR_LAST; addr+=STRIDE) {
       lfsr = lfsr_iter_word(lfsr, lfsr_byte_feedback);
-      cnt += __builtin_pulp_cnt(lfsr ^ *(uint32_t *)(addr));
+      if(lfsr !=  *(uint32_t *)(addr))
+        cnt ++;
       }
     
   printf("number of errors: %d/%d \n", cnt, cnt2 );
