@@ -80,7 +80,21 @@ int main() {
 
   // start hwpe operation
   hwpe_trigger_job();
+  // enable interrupts
+  //read mstatus
+  int mstat;
+  asm volatile ("csrr %0, 0x300" : "=r" (mstat));
+  // turn bit 3 (MIE) to 1 
+  mstat= (1<<3) | mstat;
+  asm volatile ("csrw 0x300, %0" : : "r"(1<<CSR_PCER_LD_STALL));
 
+  //set MIE(26) to 1
+  asm volatile ("csrw 0x304, %0" : : "r"(1<<26));
+
+    
+  //set MIP(26) to 1
+  asm volatile ("csrw 0x344, %0" : : "r"(1<<26));
+  
    // wait for end of compuation
   soc_eu_fcEventMask_setEvent(ARCHI_SOC_EVENT_FCHWPE0);
   hal_itc_wait_for_event(1 << 26);
